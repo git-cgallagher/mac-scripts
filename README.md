@@ -87,6 +87,13 @@ New tools go in a topic directory (`imessage/`, `network/`, …) with a
 section added to the catalog table and this README. Keep scripts
 self-contained, dependency-free, and safe to read-only by default.
 
+Changes land through pull requests: `main` is protected by the repo
+ruleset "main protection", so direct pushes are rejected.
+
+## Security
+
+Please report security problems privately; see [SECURITY.md](SECURITY.md).
+
 ## License
 
 [MIT](LICENSE)
