@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-01
+
+- Added `menubar/menu-bar-spacing.sh`: shows the current menu bar icon
+  spacing, sets a new value (or resets to the macOS default), then offers to
+  log out so the change takes effect. Helps fit more icons beside the notch.
+
 ## 2026-10-29
 
 - Added `SECURITY.md`: report security problems privately through GitHub's

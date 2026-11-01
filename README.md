@@ -9,6 +9,7 @@ sqlite3, standard BSD userland).
 | Script | What it does |
 |---|---|
 | [`imessage/monitor-imessage-download.sh`](imessage/monitor-imessage-download.sh) | Watches the Messages-in-iCloud full-history download to a Mac and announces when it looks complete. |
+| [`menubar/menu-bar-spacing.sh`](menubar/menu-bar-spacing.sh) | Tightens the gap between menu bar icons so more of them fit beside the notch, then offers to log out. |
 
 ---
 
@@ -80,6 +81,43 @@ INTERVAL=30 STABLE_POLLS=30 ./imessage/monitor-imessage-download.sh
   per-year table it prints.
 - Attachment hydration typically trails message text — the script accounts
   for this by requiring the attachments signals to go flat too.
+
+## menubar/menu-bar-spacing.sh
+
+### Why this exists
+
+On MacBooks with a notch, menu bar icons that don't fit to the right of the
+notch are silently hidden: there's no overflow menu. macOS reads two hidden
+settings that control how much space each icon takes, and shrinking them
+often fits several more icons without installing a menu bar manager.
+
+### What it does
+
+1. Shows the current values of `NSStatusItemSpacing` (gap between icons) and
+   `NSStatusItemSelectionPadding` (highlight padding). macOS's default is
+   about 16 for both when the keys are unset.
+2. Asks for new values (0–20; padding defaults to the spacing value), or `d`
+   to delete both keys and return to the macOS default.
+3. Writes them with `defaults -currentHost write -globalDomain`.
+4. Offers to log out, since the menu bar only applies the change at login.
+   Answering `y` opens macOS's own log-out confirmation, so you can still
+   cancel there.
+
+### Usage
+
+```bash
+./menubar/menu-bar-spacing.sh
+```
+
+It's interactive, so run it in a terminal window. Try 6 first; go to 2–4 if
+icons are still hidden. To undo, run it again and enter `d`.
+
+### Caveats
+
+- These are undocumented settings. Apple could ignore or change them in a
+  future macOS release.
+- If icons are still hidden at the tightest spacing, a menu bar manager such
+  as [Ice](https://github.com/jordanbaird/Ice) can collapse the overflow.
 
 ## Contributing
 
