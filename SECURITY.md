@@ -22,3 +22,8 @@ connections and store no credentials.
   (`sqlite3 -readonly`) and measures the Messages attachments folder. It changes nothing in Messages.
   It needs Full Disk Access for your terminal app, and it announces completion with a macOS
   notification and `say`.
+- `menubar/menu-bar-spacing.sh` sets two menu bar values for your user on this Mac only
+  (`NSStatusItemSpacing` and `NSStatusItemSelectionPadding`, whole numbers from 0 to 20, written with
+  `defaults -currentHost write -globalDomain`), or deletes them to go back to the macOS default. It
+  doesn't need `sudo`. If you answer `y` at the end, it asks macOS to log out through System Events;
+  macOS still shows its own confirmation dialog first, so you can cancel there.
