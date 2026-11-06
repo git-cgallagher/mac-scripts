@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-11-06
+
+- `SECURITY.md`'s Scope section now covers `menubar/menu-bar-spacing.sh` too:
+  which values it writes, and that its log-out step still goes through macOS's
+  own confirmation dialog. The README's Contributing section now asks each new
+  tool to add a Scope bullet, so the two don't drift apart again.
+
 ## 2026-11-01
 
 - Added `menubar/menu-bar-spacing.sh`: shows the current menu bar icon

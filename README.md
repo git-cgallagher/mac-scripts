@@ -122,8 +122,9 @@ icons are still hidden. To undo, run it again and enter `d`.
 ## Contributing
 
 New tools go in a topic directory (`imessage/`, `network/`, …) with a
-section added to the catalog table and this README. Keep scripts
-self-contained, dependency-free, and safe to read-only by default.
+section added to the catalog table and this README, plus a bullet in
+`SECURITY.md`'s Scope section saying what the script reads and changes. Keep
+scripts self-contained, dependency-free, and safe to read-only by default.
 
 Changes land through pull requests: `main` is protected by the repo
 ruleset "main protection", so direct pushes are rejected.
